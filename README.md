@@ -7,7 +7,7 @@
 
 <br />
 <div align="center">
-    <a href="https://sad-cori-ec4c3e.netlify.app/">
+    <a href="https://enchanting-brigadeiros-6c88f0.netlify.app/">
     <img src="front-end/src/assets/images/logo.png" alt="Logo Magia das Velas" width="500" height="500">
   </a>
 
@@ -16,7 +16,7 @@
   <p align="center">
    Loja de velas aromáticas 100% veganas e artesanais.
     <br />
-    <a href=""><strong>Acessar demonstração »</strong></a>
+    <a href="https://enchanting-brigadeiros-6c88f0.netlify.app/"><strong>Acessar demonstração »</strong></a>
   </p>
 
   <h4 align="center"> 
