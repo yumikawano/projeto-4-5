@@ -10,7 +10,7 @@
     <img src="" alt="Logo" width="200" height="55">
   </a>
 
-  <h3 align="center">Pet Mania</h3>
+  <h3 align="center">Magia das velas</h3>
 
   <p align="center">
     <!-- Catálogo de produtos do Pet Mania onde o cliente pode se cadastrar e selecionar os produtos desejados para compras com maior comodidade. -->
@@ -32,4 +32,4 @@ https://www.linkedin.com/in/yumi-kawano/
 
 # Licença
 
-Este projeto esta sobe a licença MIT. Veja [LICENSE](https://github.com/yumikawano/projeto4-5/blob/main/LICENSE) para mais informações.
+Este projeto esta sobe a licença MIT. Veja [LICENSE](https://github.com/yumikawano/projeto-4-5/blob/main/LICENSE) para mais informações.
