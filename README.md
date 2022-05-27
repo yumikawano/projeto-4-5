@@ -8,7 +8,7 @@
 <br />
 <div align="center">
     <a href="https://sad-cori-ec4c3e.netlify.app/">
-    <img src="front-end/src/assets/images/logo.png" alt="Logo Magia das Velas" width="500" height="400">
+    <img src="front-end/src/assets/images/logo-black.png" alt="Logo Magia das Velas" width="500" height="300">
   </a>
 
   <h3 align="center">Magia das velas</h3>
