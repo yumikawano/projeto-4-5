@@ -8,13 +8,13 @@
 <br />
 <div align="center">
     <a href="https://sad-cori-ec4c3e.netlify.app/">
-    <img src="" alt="Logo" width="200" height="55">
+    <img src="front-end/src/assets/images/logo.png" alt="Logo Magia das Velas" width="200" height="55">
   </a>
 
   <h3 align="center">Magia das velas</h3>
 
   <p align="center">
-    <!-- Catálogo de produtos do Pet Mania onde o cliente pode se cadastrar e selecionar os produtos desejados para compras com maior comodidade. -->
+   Loja de velas aromáticas 100% veganas e artesanais.
     <br />
     <a href=""><strong>Acessar demonstração »</strong></a>
   </p>
