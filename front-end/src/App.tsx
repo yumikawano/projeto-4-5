@@ -1,11 +1,8 @@
-import { Button, Container } from "react-bootstrap";
+import { Routes } from "./Routes";
 
 function App() {
   return (
-    <Container>
-   <p>Magia das velas</p>
-   <Button>Entrar</Button>
-    </Container>
+    <Routes />
   );
 }
 
