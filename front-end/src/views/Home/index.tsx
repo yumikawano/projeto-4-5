@@ -26,10 +26,10 @@ export function HomeView () {
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-            <Container>
+            {/* <Container>
                 <Title>Magia das velas</Title>
                 <Button onClick={() => toast.success('Oi!')}>Entrar</Button>
-            </Container>
+            </Container> */}
         </Layout>
 
     )
