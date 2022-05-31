@@ -1,17 +1,17 @@
 import { Layout } from "../../components/Layout";
 import Foto1 from "../../assets/images/foto1.jpg"
-import { Container } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 
 export function QuemSomosView () {
     return(
         <Layout>
             <Container>
                 <div className="row">
-                    <div className="col">
+                    <div className="col d-flex justify-content-center">
                     <h1>Sinta mais que um aroma, Viva uma sensação!</h1>
                     </div>
                     <div className="col">
-                    <img src={Foto1} width={457} height={441} />
+                    <Image src={Foto1} width={457} height={441} />
                     </div>
                     <div className="col">
                     <h1>Quem</h1>

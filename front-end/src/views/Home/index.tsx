@@ -1,6 +1,6 @@
-import { Button, Container, Carousel } from "react-bootstrap";
-import { toast } from "react-toastify";
-import styled from "styled-components";
+import { Carousel, Image } from "react-bootstrap";
+// import { toast } from "react-toastify";
+// import { styled } from "styled-components";
 import { Layout } from "../../components/Layout";
 import Banner1 from "../../assets/images/banner1.jpg";
 import Banner2 from "../../assets/images/banner2.jpg";
@@ -12,16 +12,16 @@ export function HomeView () {
         <Layout>
         <Carousel fade>
           <Carousel.Item>
-            <img className="d-block w-100" src={Banner1} alt="First slide" />
+            <Image className="d-block w-100" src={Banner1} alt="First slide" height={500} />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-100" src={Banner2} alt="Second slide" />
+            <Image className="d-block w-100" src={Banner2} alt="Second slide" height={500} />
 
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-100" src={Banner3} alt="Third slide" />
+            <Image className="d-block w-100" src={Banner3} alt="Third slide" height={500} />
 
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
@@ -33,7 +33,4 @@ export function HomeView () {
         </Layout>
 
     )
-}
-const Title = styled.p`
-font-size: 3rem;
-`
+  }
