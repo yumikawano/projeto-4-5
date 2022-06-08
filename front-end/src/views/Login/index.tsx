@@ -1,10 +1,13 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { Layout } from "../../components/Layout";
+import styled from "styled-components"
 
 export function LoginView() {
     return (
         <Layout>
-            <h1>Login</h1>
+            <ContainerStyled>
+            <h1 className="text-center">Login</h1>
+            </ContainerStyled>
             <Container>
                 <div className="row">
                     <div className="col">
@@ -94,3 +97,10 @@ export function LoginView() {
         </Layout>
     )
 }
+
+const ContainerStyled = styled.div`
+  @media (min-width: 992px) {
+    width: 100%;
+    height: 150px;
+  }
+`

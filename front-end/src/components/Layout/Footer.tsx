@@ -15,13 +15,13 @@ export function Footer  ({ withoutMargin = false }: Props) {
         <ContainerStyled className="d-lg-flex align-items-center">
             <h3 className="text-center w-100">SUSTENTAVEL | ARTESANAL | ENERGÉTICO</h3>
         </ContainerStyled>
-        <Button variant="light">
+        <Button href="https://wa.me/+5544988251854" target="_blank" variant="light">
             <IconStyled icon={faWhatsapp} />
         </Button>
-        <Button variant="light">
+        <Button href="https://www.facebook.com/yumi.kawano.589" target="_blank"  variant="light">
             <IconStyled icon={faFacebookSquare} />
         </Button>
-        <Button variant="light">
+        <Button href="https://www.instagram.com/magiadasvelasmga/" target="_blank" variant="light">
             <IconStyled icon={faInstagramSquare} />
         </Button>
         <p>Av. Mauá, 1308 / sala 601 - Maringá-PR/ 87050-020</p>
