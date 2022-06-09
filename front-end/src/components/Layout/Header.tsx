@@ -22,7 +22,7 @@ export function Header () {
                             <NavLinkStyled as={Link} to="/produtos">Velas Aromáticas</NavLinkStyled>
                             <NavLinkStyled as={Link} to="/sobre">Quem Somos</NavLinkStyled>
                             <NavLinkStyled as={Link} to="/contato">Contato</NavLinkStyled>
-                            <NavLinkStyled as={Link} to="/login"><FontAwesomeIcon icon={faUser} />Login | Cadastre-se</NavLinkStyled>
+                            <NavLinkStyled as={Link} to="/cadastro"><FontAwesomeIcon icon={faUser} />Login | Cadastre-se</NavLinkStyled>
                             <NavLinkStyled as={Link} to="/cart"><FontAwesomeIcon icon={faCartArrowDown} /></NavLinkStyled>
                             </Nav>
                         </Navbar.Collapse>
