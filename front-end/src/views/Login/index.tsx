@@ -1,106 +1,91 @@
-import { Button, Container, Form } from "react-bootstrap";
+import { useFormik } from "formik";
+import { Col, Container, Form, Row, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { Layout } from "../../components/Layout";
-import styled from "styled-components"
+import * as yup from 'yup'
+import { loginUser } from "../../services/loginUser";
+import { FirebaseError } from "firebase/app";
+import { AuthErrorCodes } from "firebase/auth";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../store/slices/userSlice";
+import { FormField } from "../../components/FormField";
 
-export function LoginView() {
-    return (
-        <Layout>
-            <ContainerStyled>
-            <h1 className="text-center">Login</h1>
-            </ContainerStyled>
-            <Container>
-                <div className="row">
-                    <div className="col">
-                        <h3>Já sou cliente</h3>
-                        <Form>
-                            <Form.Group controlId="inscription-email" className="mb-3">
-                                <Form.Label className="m-0">E-mail</Form.Label>
-                                <Form.Control
-                                    placeholder="exemplo@exemplo.com"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userEmail"
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="inscription-name" className="mb-3">
-                                <Form.Label className="m-0">Senha</Form.Label>
-                                <Form.Control
-                                    placeholder="Informe sua senha"
-                                    // value={formData.userPassword}
-                                    // onChange={handleChange}
-                                    name="userPassword"
-                                    required
-                                />
-                            </Form.Group>
-                        </Form>
-                        <Button variant="outline-dark">Entrar</Button>
-                    </div>
-                    <div className="col">
-                        <h3>Cadastre-se</h3>
-                        <Form>
-                        <Form.Group controlId="inscription-name" className="mb-3">
-                                <Form.Label className="m-0">Nome</Form.Label>
-                                <Form.Control
-                                    placeholder="Seu nome"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userName"
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="inscription-sobrenome" className="mb-3">
-                                <Form.Label className="m-0">Sobrenome</Form.Label>
-                                <Form.Control
-                                    placeholder="Seu sobrenome"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userSobrenome"
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="inscription-email" className="mb-3">
-                                <Form.Label className="m-0">E-mail</Form.Label>
-                                <Form.Control
-                                    placeholder="exemplo@exemplo.com"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userEmail"
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="inscription-password" className="mb-3">
-                                <Form.Label className="m-0">Senha</Form.Label>
-                                <Form.Control
-                                    placeholder="Insira uma senha"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userPassword"
-                                    required
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="inscription-password" className="mb-3">
-                                <Form.Label className="m-0">Confirmar senha</Form.Label>
-                                <Form.Control
-                                    placeholder="Confirme sua senha"
-                                    // value={formData.userEmail}
-                                    // onChange={handleChange}
-                                    name="userPassword"
-                                    required
-                                />
-                            </Form.Group>
-                        </Form>
-                        <Button variant="outline-dark">Cadastrar</Button>
-                    </div>
-                </div>
-            </Container>
-        </Layout>
-    )
+type FormValues = {
+  email: string
+  password: string
 }
 
-const ContainerStyled = styled.div`
-  @media (min-width: 992px) {
-    width: 100%;
-    height: 150px;
+export function LoginView () {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: yup.object().shape({
+      email: yup.string()
+        .required('Preencha o e-mail.')
+        .email('Preencha um e-mail válido.'),
+      password: yup.string()
+        .required('Preencha a senha.')
+    }),
+    onSubmit: async (values) => {
+      try {
+        const user = await loginUser(values)
+        dispatch(updateUser(user))
+        navigate('/novo-pedido')
+      } catch (error) {
+        const errorMsg = error instanceof FirebaseError && (error.code === AuthErrorCodes.INVALID_PASSWORD || error.code === AuthErrorCodes.USER_DELETED)
+          ? 'Login ou senha inválidos.'
+          : 'Falha ao fazer login. Tente novamente.'
+        toast.error(errorMsg)
+      }
+    }
+  })
+  const getFieldProps = (fieldName: keyof FormValues) => {
+    return {
+      ...formik.getFieldProps(fieldName),
+      controlId: `input-${fieldName}`,
+      error: formik.errors[fieldName],
+      isInvalid: formik.touched[fieldName] && !!formik.errors[fieldName],
+      isValid: formik.touched[fieldName] && !formik.errors[fieldName]
+    }
   }
-`
+  return (
+    <Layout>
+      <Container>
+        <Row className="justify-content-center">
+          <Col lg={4}>
+            <h3>Login</h3>
+            <Form onSubmit={formik.handleSubmit}>
+              <FormField
+                {...getFieldProps('email')}
+                label='E-mail'
+                type='email'
+                placeholder='Informe o seu e-mail de acesso'
+              />
+              <FormField
+                {...getFieldProps('password')}
+                label='Senha'
+                type='password'
+                placeholder='Informe sua senha de acesso'
+              />
+              <div className="d-grid mb-4">
+                <Button
+                  type="submit"
+                  loading={formik.isValidating || formik.isSubmitting}
+                  disabled={formik.isValidating || formik.isSubmitting}
+                >
+                  Entrar
+                </Button>
+              </div>
+              <p className="text-center">Não possui conta?<br/><Link to='/cadastro'>Cadastrar</Link></p>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
+  )
+}
