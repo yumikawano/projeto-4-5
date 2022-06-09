@@ -4,6 +4,7 @@ import { QuemSomosView } from "./views/QuemSomos";
 import { ContatoView } from "./views/Contato";
 import { LoginView } from "./views/Login";
 import { ProductsView } from "./views/Products";
+import { NotFoundView } from "./views/NotFound";
 
 export function Routes () {
     return(
@@ -13,6 +14,7 @@ export function Routes () {
             <Route path="/sobre" element={<QuemSomosView />} />
             <Route path="/contato" element={<ContatoView />} />
             <Route path="/login" element={<LoginView />} />
+            <Route path="*" element={<NotFoundView />} />
             {/* <Route path="/cart" element={<CartView />} /> */}
         </RDRoutes>
     )
