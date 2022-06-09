@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Col, Container, Form, Row, Button } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { Layout } from "../../components/Layout";
 import * as yup from 'yup'
@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../store/slices/userSlice";
 import { FormField } from "../../components/FormField";
+import { CustomButton } from "../../components/CustomButton"
 
 type FormValues = {
   email: string
@@ -73,13 +74,13 @@ export function LoginView () {
                 placeholder='Informe sua senha de acesso'
               />
               <div className="d-grid mb-4">
-                <Button
+                <CustomButton
                   type="submit"
                   loading={formik.isValidating || formik.isSubmitting}
                   disabled={formik.isValidating || formik.isSubmitting}
                 >
                   Entrar
-                </Button>
+                </CustomButton>
               </div>
               <p className="text-center">Não possui conta?<br/><Link to='/cadastro'>Cadastrar</Link></p>
             </Form>

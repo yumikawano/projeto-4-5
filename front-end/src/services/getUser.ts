@@ -7,11 +7,10 @@ export const getUser = async (userId: string): Promise<User> => {
   if (!userSnapshot.exists()) {
     throw new Error('User not found.')
   }
-  const { name, lastname, email, phone } = userSnapshot.data()
+  const { name, email, phone } = userSnapshot.data()
   return {
     id: userId,
     name,
-    lastname,
     email,
     phone
   }

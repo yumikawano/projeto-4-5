@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Col, Container, Form, Row, Button } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { Layout } from "../../components/Layout";
 import * as yup from 'yup';
@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../store/slices/userSlice";
 import { FormField } from "../../components/FormField";
+import { CustomButton } from "../../components/CustomButton";
+import { PageTitle } from "../../components/PageTitle";
 
 type FormValues = {
   name: string
@@ -33,9 +35,6 @@ export function RegisterView () {
     validationSchema: yup.object().shape({
       name: yup.string()
         .required('Preencha o nome.')
-        .min(5, 'Informe pelo menos 5 caractéres.'),
-      name: yup.string()
-        .required('Preencha o sobrenome.')
         .min(5, 'Informe pelo menos 5 caractéres.'),
       email: yup.string()
         .required('Preencha o e-mail.')
@@ -78,16 +77,11 @@ export function RegisterView () {
       <Container>
         <Row className='justify-content-center'>
           <Col lg={4}>
-            <h3>Nova conta</h3>
+            <PageTitle>Nova conta</PageTitle>
             <Form onSubmit={formik.handleSubmit}>
               <FormField
                 label="Nome"
                 placeholder="Digite aqui seu nome"
-                {...getFieldProps('name')}
-              />
-              <FormField
-                label="Sobrenome"
-                placeholder="Digite aqui seu sobrenome"
                 {...getFieldProps('name')}
               />
               <FormField
@@ -125,13 +119,13 @@ export function RegisterView () {
                 )}
               </Form.Group>
               <div className="d-grid mb-4">
-                <Button
+                <CustomButton
                   type='submit'
                   loading={formik.isValidating || formik.isSubmitting}
                   disabled={formik.isValidating || formik.isSubmitting}
                 >
                   Criar conta
-                </Button>
+                </CustomButton>
               </div>
               <p className="text-center">Já possui conta?<br/><Link to='/login'>Entrar</Link></p>
             </Form>
