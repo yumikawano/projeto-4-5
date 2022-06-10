@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { updateUser } from "../../store/slices/userSlice";
 import { FormField } from "../../components/FormField";
 import { CustomButton } from "../../components/CustomButton"
+import { PageTitle } from "../../components/PageTitle";
 
 type FormValues = {
   email: string
@@ -59,7 +60,7 @@ export function LoginView () {
       <Container>
         <Row className="justify-content-center">
           <Col lg={4}>
-            <h3>Login</h3>
+            <PageTitle>Login</PageTitle>
             <Form onSubmit={formik.handleSubmit}>
               <FormField
                 {...getFieldProps('email')}

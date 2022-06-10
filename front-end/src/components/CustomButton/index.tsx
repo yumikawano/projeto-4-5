@@ -37,11 +37,11 @@ const ButtonStyled = styled(Button)`
     font-size: 1.125rem;
   `}
   ${props => (props.variant === 'primary' || !props.variant) && `
-    background-color: #ffffff;
-    border-color: #000000;
+    background-color: #ffedff;
+    border-color: #ffffff;
     &:hover {
       background-color: #ffedff;
-      border-color: #000000;
+      border-color: #ffffff;
     }
   `}
   ${props => props.variant === 'outline-primary' && `
@@ -49,7 +49,7 @@ const ButtonStyled = styled(Button)`
     border-color: #050505;
     &:hover {
       background-color: #ffedff;
-      border-color: #000000;
+      border-color: #ffffff;
     }
   `}
 `

@@ -12,5 +12,5 @@ export function PageTitle ({ children }: Props) {
 
 const TitleStyled = styled.h1`
   font-weight: 400;
-  color: #ffeeff;
+  color: #000000;
 `
