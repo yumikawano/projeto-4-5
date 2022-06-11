@@ -24,7 +24,7 @@ export function PayPalButton ({ value, customId, onSuccess, onError }: Props) {
             custom_id: customId
           }],
           application_context: {
-            brand_name: 'Fox Entregas',
+            brand_name: 'Magia das Velas',
             shipping_preference: 'NO_SHIPPING'
           }
         })

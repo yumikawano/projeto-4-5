@@ -2,10 +2,21 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import Logo from "../../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser, selectIsUserLoggedIn } from "../../store/slices/userSlice";
+import { logoutUser } from "../../services/logoutUser";
 
 export function Header () {
+    const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handleLogout = async () => {
+    await logoutUser()
+    dispatch(deleteUser())
+    navigate('/login')
+  }
     return (
         <header>
                 <Navbar>
@@ -24,10 +35,18 @@ export function Header () {
                             <NavLinkStyled as={Link} to="/contato">Contato</NavLinkStyled>
                             <NavLinkStyled as={Link} to="/cadastro"><FontAwesomeIcon icon={faUser} />Login | Cadastre-se</NavLinkStyled>
                             <NavLinkStyled as={Link} to="/cart"><FontAwesomeIcon icon={faCartArrowDown} /></NavLinkStyled>
+                            {isUserLoggedIn ? (
+                                <>
+                                <NavLinkStyled as={Link} to='/novo-pedido'>Novo pedido</NavLinkStyled>
+                                <NavLinkStyled onClick={handleLogout}>Sair</NavLinkStyled>
+                                </>
+                              ) : (
+                                <>
+                                </>
+                              )}
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
-
                 </Navbar>
         </header>
     )
