@@ -16,7 +16,7 @@
   <p align="center">
    Loja de velas aromáticas 100% veganas e artesanais.
     <br />
-    <a href="https://enchanting-brigadeiros-6c88f0.netlify.app/"><strong>Acessar demonstração »</strong></a>
+    <a href="https://projeto-4-5-9kk55td8d-yumikawano.vercel.app/"><strong>Acessar demonstração »</strong></a>
   </p>
 
   <h4 align="center"> 
