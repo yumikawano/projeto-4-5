@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Routes } from "./Routes";
+import { Routes } from "./routes";
 import { auth } from "./services/firebase";
 import { getUser } from "./services/getUser";
 import { deleteUser, updateUser } from "./store/slices/userSlice";
