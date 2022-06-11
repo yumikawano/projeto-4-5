@@ -1,12 +1,13 @@
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from './firebase'
+import { collection, getDocs } from "firebase/firestore"
+import { products } from "../entities/Products"
+import { db } from "./firebase"
 
-export async function getProducts () {
-console.log(db)
-const productCollection = collection(db, 'Products')
-const response = await getDocs(productCollection)
-console.log(response)
-const products = response.docs.map(doc => doc.data());
-console.log(products)
-return products
+
+
+export const getProducts = async ():Promise<products> => {
+    const doc = collection(db, 'Products')
+    const products = await getDocs(doc)
+    const productsSnapshot = products.docs.map(doc => doc.data())
+    return productsSnapshot
+    
 }

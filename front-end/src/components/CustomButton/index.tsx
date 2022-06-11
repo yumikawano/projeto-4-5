@@ -30,26 +30,28 @@ export function CustomButton ({ children, loading, to, ...otherProps }: Props) {
 
 const ButtonStyled = styled(Button)`
   border-radius: 100px;
+  color: black;
   font-weight: 500;
   padding-left: 50px;
   padding-right: 50px;
   ${props => props.size === 'lg' && `
     font-size: 1.125rem;
   `}
-  ${props => (props.variant === 'primary' || !props.variant) && `
+  ${props => (props.variant === 'light' || !props.variant) && `
     background-color: #ffedff;
     border-color: #ffffff;
     &:hover {
-      background-color: #ffedff;
-      border-color: #ffffff;
+      background-color: #ffffff;
+      color: black;
+      border-color: #ffedff;
     }
   `}
-  ${props => props.variant === 'outline-primary' && `
-    color: #ffffff;
-    border-color: #050505;
+  ${props => props.variant === 'outline-dark' && `
+    color: #fcd7fc;
+    border-color: #ffffff;
     &:hover {
-      background-color: #ffedff;
-      border-color: #ffffff;
+      background-color: #ffffff;
+      border-color: #fcd7fc;
     }
   `}
 `

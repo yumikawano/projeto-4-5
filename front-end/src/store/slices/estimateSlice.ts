@@ -14,7 +14,7 @@ const slice = createSlice({
   name: 'estimate',
   initialState,
   reducers: {
-    setCurrentEstimate: (state, action: PayloadAction<Estimate>) => {
+    setCurrentEstimate: (state: EstimateState, action: PayloadAction<Estimate>) => {
       state.currentEstimate = action.payload
     },
     clearCurrentEstimate: () => initialState

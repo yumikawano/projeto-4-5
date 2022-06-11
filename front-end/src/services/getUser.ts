@@ -3,7 +3,7 @@ import { User } from "../entities/User"
 import { db } from "./firebase"
 
 export const getUser = async (userId: string): Promise<User> => {
-  const userSnapshot = await getDoc(doc(db, 'users', userId))
+  const userSnapshot = await getDoc(doc(db, 'User', userId))
   if (!userSnapshot.exists()) {
     throw new Error('User not found.')
   }

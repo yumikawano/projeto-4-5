@@ -11,8 +11,9 @@ type NewUserInput = {
 }
 
 export const createUser = async ({ email, password, name, phone }: NewUserInput): Promise<User> => {
+  debugger
   const result = await createUserWithEmailAndPassword(auth, email, password)
-  await setDoc(doc(db, 'users', result.user.uid), {
+  await setDoc(doc(db, 'User', result.user.uid), {
     name,
     email,
     phone

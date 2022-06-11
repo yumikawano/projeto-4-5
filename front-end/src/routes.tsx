@@ -10,6 +10,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { PublicOnlyRoute } from "./components/PublicOnlyRoute";
 import { NewOrderView } from "./views/NewOrder";
 import { NewOrderSuccessView } from "./views/NewOrderSuccess";
+import { ProductDetailView } from "./views/ProductDetail";
 
 
 export function Routes () {
@@ -17,6 +18,7 @@ export function Routes () {
         <RDRoutes>
             <Route path="/" element={<HomeView />} /> 
             <Route path="/produtos" element={<ProductsView />} />
+            <Route path="/productdetail" element={<ProductDetailView />} />
             <Route path="/sobre" element={<QuemSomosView />} />
             <Route path="/contato" element={<ContatoView />} />
             <Route path="/login" element={<PublicOnlyRoute><LoginView /></PublicOnlyRoute>} />
