@@ -19,7 +19,7 @@ export function CartView () {
             {!productsCart || !user ? (
                 <Container className="d-flex flex-column align-items-center gap-4">
                     <PageTitle>Ops! Seu carrinho ainda está vazio.</PageTitle>
-                    <FontAwesomeIcon icon={faShoppingBag} width={500} height={500} />
+                    <IconStyled icon={faShoppingBag} />
                         <CustomButton to="/produtos">Adicionar mais itens</CustomButton>
                         <CustomButton to="/novo-pedido">Finalizar pedido</CustomButton>
                 </Container>
@@ -36,3 +36,8 @@ export function CartView () {
 
 const StyledContainer = styled(Container)`
     max-width: 960px !important;`
+
+const IconStyled = styled(FontAwesomeIcon)`
+font-size: 400px;
+color: #fff2f3;
+`
