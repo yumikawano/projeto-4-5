@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify";
 import { getProducts } from "../../services/product";
 import { Layout } from "../../components/Layout";
@@ -8,6 +10,7 @@ import { Container } from "react-bootstrap";
 import { Card, Row, Col } from "react-bootstrap";
 import { CustomButton } from "../../components/CustomButton";
 import { Loading } from "../../components/Loanding";
+import { addToCart } from "../../store/slices/cardSlice"
 
 type productsProps = product | null
 type item = {
@@ -33,6 +36,12 @@ export function ProductsView () {
             }
             fetch()
         }, [])
+        const dispatch = useDispatch()
+    const navigate = useNavigate()
+        const handleAddToCart = (item:item) => {
+            dispatch(addToCart(Products))
+            navigate('/cart')
+        }
     return (
         <Layout>
              <Container>
@@ -42,7 +51,7 @@ export function ProductsView () {
                 ) : (
                     <>
                       <Row>
-                        {Products.map((item:item) => (
+                        {Products.map((item:product) => (
                             <Col key={item.id} className='mb-4' xs={6} md={4} lg={3}>
                             <Card className='text-center shadow h-100' key={item.name}>
                                 <Card.Img variant="top" src={item.image} alt={item.name} width={220} height={220}/>
@@ -50,7 +59,7 @@ export function ProductsView () {
                                 <Card.Title as='h2' className='h5'>{item.name}</Card.Title>
                                 <Card.Text>{item.shortDescription}</Card.Text>
                                 <Card.Text as='h5'>{item.price}</Card.Text>
-                                <CustomButton to={`/cart/${item.id}`}>Adicionar ao carrinho</CustomButton>
+                                <CustomButton onClick={() => handleAddToCart(item)}>Adicionar ao carrinho</CustomButton>
                                 <CustomButton to={`/produtos/${item.id}`}>Saiba mais</CustomButton>
                                 </Card.Body>
                             </Card>

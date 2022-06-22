@@ -8,6 +8,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Button, Container } from "react-bootstrap";
 import styled from "styled-components";
 import { GoogleMapsView } from "../../components/GoogleMap"
+import { FormMessage } from "../../components/FormMessage";
 
 export function ContatoView () {
     return (
@@ -31,6 +32,7 @@ export function ContatoView () {
                 <GoogleMapsView />
                 </div>
             </div>
+            <FormMessage />
             </Container>
         </Layout>
     )
