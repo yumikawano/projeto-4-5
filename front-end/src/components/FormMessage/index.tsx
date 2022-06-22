@@ -115,7 +115,6 @@ export function FormMessage () {
                 <div className="d-grid">
                     <CustomButton className="mx-auto" variant="transparent" type="submit">
                         <CustomButton>Enviar</CustomButton>
-                        <CustomButton>Sua Mensagem</CustomButton>
                     </CustomButton>
                 </div>
             </Form>
