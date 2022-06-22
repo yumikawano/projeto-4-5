@@ -2,22 +2,23 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getProducts } from "../../services/product";
 import { Layout } from "../../components/Layout";
-import { products } from "../../entities/Products";
+import { product } from "../../entities/Products";
 import { PageTitle } from "../../components/PageTitle";
 import { Container } from "react-bootstrap";
 import { Card, Row, Col } from "react-bootstrap";
 import { CustomButton } from "../../components/CustomButton";
 import { Loading } from "../../components/Loanding";
 
+type productsProps = product | null
+type item = {
+    id: string
+    name: string
+    image: string
+    shortDescription: string
+    price: string
+}
+
 export function ProductsView () {
-    type productsProps = products | null
-    type item = {
-        id: string
-        name: string
-        image: string
-        shortDescription: string
-        price: string
-    }
     const [Products, setProducts]:any = useState()
         useEffect(() => {
             const fetch = async ():Promise<void | productsProps > => {
@@ -50,7 +51,7 @@ export function ProductsView () {
                                 <Card.Text>{item.shortDescription}</Card.Text>
                                 <Card.Text as='h5'>{item.price}</Card.Text>
                                 <CustomButton to={`/cart/${item.id}`}>Adicionar ao carrinho</CustomButton>
-                                <CustomButton to="/productdetail">Saiba mais</CustomButton>
+                                <CustomButton to={`/produtos/${item.id}`}>Saiba mais</CustomButton>
                                 </Card.Body>
                             </Card>
                             </Col>

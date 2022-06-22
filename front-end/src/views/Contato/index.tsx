@@ -5,9 +5,9 @@ import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import { faInstagramSquare } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Google from "../../assets/images/Google-Maps.png"
-import { Button, Container, Image } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import styled from "styled-components";
+import { GoogleMapsView } from "../../components/GoogleMap"
 
 export function ContatoView () {
     return (
@@ -28,7 +28,7 @@ export function ContatoView () {
             <Button href="https://www.facebook.com/yumi.kawano.589" target="_blank" variant="light" ><FontAwesomeIcon icon={faFacebookSquare} />FACEBOOK</Button>
                 </div>
                 <div className="col">
-                <Image src={Google} width={507} height={346}/>
+                <GoogleMapsView />
                 </div>
             </div>
             </Container>

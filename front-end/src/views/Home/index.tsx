@@ -1,6 +1,4 @@
 import { Carousel, Image } from "react-bootstrap";
-// import { toast } from "react-toastify";
-// import { styled } from "styled-components";
 import { Layout } from "../../components/Layout";
 import Banner1 from "../../assets/images/banner1.jpg";
 import Banner2 from "../../assets/images/banner2.jpg";
@@ -26,10 +24,6 @@ export function HomeView () {
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-            {/* <Container>
-                <Title>Magia das velas</Title>
-                <Button onClick={() => toast.success('Oi!')}>Entrar</Button>
-            </Container> */}
         </Layout>
 
     )

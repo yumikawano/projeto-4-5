@@ -11,7 +11,7 @@ export function NewOrderSuccessView () {
           <Col md={8} lg={6} xl={5}>
             <PageTitle>Pedido recebido com sucesso!</PageTitle>
             <p>Entraremos em contato pelo seu telefone e pelo e-mail com os detalhe do motoboy que irá realizar sua entrega.</p>
-            <CustomButton variant="success" size="lg" to='/novo-pedido'>Fazer outro pedido</CustomButton>
+            <CustomButton size="lg" to='/novo-pedido'>Fazer outro pedido</CustomButton>
           </Col>
         </Row>
       </Container>

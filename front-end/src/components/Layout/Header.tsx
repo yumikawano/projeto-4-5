@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import Logo from "../../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -10,9 +10,9 @@ import { logoutUser } from "../../services/logoutUser";
 
 export function Header () {
     const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const handleLogout = async () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleLogout = async () => {
     await logoutUser()
     dispatch(deleteUser())
     navigate('/login')
@@ -22,7 +22,7 @@ export function Header () {
                 <Navbar>
                     <Container>
                         <Navbar.Brand to="/" as={Link}>
-                        <img src={Logo}  className="logo"
+                        <Image src={Logo}  className="logo"
                 alt="Logo Magia das Velas"
                 width={202}
                 height={202} />

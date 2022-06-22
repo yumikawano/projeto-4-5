@@ -17,6 +17,7 @@ type FormValues = {
   name: string
   email: string
   phone: string
+  address: string
   password: string
   agree: boolean
 }
@@ -29,20 +30,23 @@ export function RegisterView () {
       name: '',
       email: '',
       phone: '',
+      address: '',
       password: '',
       agree: false
     },
     validationSchema: yup.object().shape({
       name: yup.string()
-        .required('Preencha o nome.')
+        .required('Informe seu nome.')
         .min(5, 'Informe pelo menos 5 caractéres.'),
       email: yup.string()
-        .required('Preencha o e-mail.')
-        .email('Preencha um e-mail válido.'),
+        .required('Informe seu e-mail.')
+        .email('Informe seu e-mail válido.'),
       phone: yup.string()
-        .required('Preencha o telefone.'),
+        .required('Informe seu telefone.'),
+      address: yup.string()
+        .required('Informe seu endereço.'),
       password: yup.string()
-        .required('Preencha a senha.')
+        .required('Informe a senha.')
         .min(8, 'Informe pelo menos 8 caractéres.')
         .max(50, 'Informe no máximo 50 caractéres.'),
       agree: yup.boolean()
@@ -99,6 +103,12 @@ export function RegisterView () {
                   { mask: '(00) 00000-0000' },
                 ]}
                 onAccept={value => formik.setFieldValue('phone', value)}
+              />
+              <FormField
+                type="address"
+                label="Endereço"
+                placeholder="Digite seu endereço"
+                {...getFieldProps('address')}
               />
               <FormField
                 label="Senha"

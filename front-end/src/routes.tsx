@@ -11,6 +11,7 @@ import { PublicOnlyRoute } from "./components/PublicOnlyRoute";
 import { NewOrderView } from "./views/NewOrder";
 import { NewOrderSuccessView } from "./views/NewOrderSuccess";
 import { ProductDetailView } from "./views/ProductDetail";
+import { CartView } from "./views/Cart"
 
 
 export function Routes () {
@@ -18,7 +19,7 @@ export function Routes () {
         <RDRoutes>
             <Route path="/" element={<HomeView />} /> 
             <Route path="/produtos" element={<ProductsView />} />
-            <Route path="/productdetail" element={<ProductDetailView />} />
+            <Route path="/produtos/:id" element={<ProductDetailView />} />
             <Route path="/sobre" element={<QuemSomosView />} />
             <Route path="/contato" element={<ContatoView />} />
             <Route path="/login" element={<PublicOnlyRoute><LoginView /></PublicOnlyRoute>} />
@@ -26,7 +27,7 @@ export function Routes () {
             <Route path="/novo-pedido" element={<PrivateRoute><NewOrderView /></PrivateRoute>} />
             <Route path="/novo-pedido/sucesso" element={<PrivateRoute><NewOrderSuccessView /></PrivateRoute>} />
             <Route path="*" element={<NotFoundView />} />
-            {/* <Route path="/cart" element={<CartView />} /> */}
+            <Route path="/cart" element={<CartView />} />
         </RDRoutes>
     )
 }
