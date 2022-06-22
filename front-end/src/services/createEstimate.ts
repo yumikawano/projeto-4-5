@@ -32,7 +32,7 @@ export const createEstimate = async ({ pickupAddress, deliveryAddress, comments 
   }
 }
 
-const getValue = (meters: number, minutes: number) => {
+function getValue(meters: number, minutes: number) {
   let value = 1.5
   value += minutes * 0.25
   value += meters * 0.001

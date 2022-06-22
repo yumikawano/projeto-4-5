@@ -37,7 +37,7 @@ export function LoginView () {
       try {
         const user = await loginUser(values)
         dispatch(updateUser(user))
-        navigate('/novo-pedido')
+        navigate('/produtos')
       } catch (error) {
         const errorMsg = error instanceof FirebaseError && (error.code === AuthErrorCodes.INVALID_PASSWORD || error.code === AuthErrorCodes.USER_DELETED)
           ? 'Login ou senha inválidos.'

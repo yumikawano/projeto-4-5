@@ -37,7 +37,6 @@ export function Header () {
                             <NavLinkStyled as={Link} to="/cart"><FontAwesomeIcon icon={faCartArrowDown} /></NavLinkStyled>
                             {isUserLoggedIn ? (
                                 <>
-                                <NavLinkStyled as={Link} to='/novo-pedido'>Novo pedido</NavLinkStyled>
                                 <NavLinkStyled onClick={handleLogout}>Sair</NavLinkStyled>
                                 </>
                               ) : (

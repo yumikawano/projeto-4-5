@@ -31,7 +31,7 @@ export function YourOrder (  { product }:productCart) {
                 </DivImageAndProduct>
                 <DivPriceQtyAndTrash>
                     <div>1</div>
-                    <p className="mb-0">{product.price.toLocaleString('pt-BR', { style:'currency', currency:'BRL' })}</p>
+                    <p className="mb-0">{product.price.toLocaleString()}</p>
                     <Button 
                         variant="transparent"
                         onClick={handleDelete}    
