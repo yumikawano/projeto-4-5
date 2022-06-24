@@ -13,13 +13,6 @@ import { Loading } from "../../components/Loanding";
 import { addToCart } from "../../store/slices/cardSlice"
 
 type productsProps = product | null
-type item = {
-    id: string
-    name: string
-    image: string
-    shortDescription: string
-    price: string
-}
 
 export function ProductsView () {
     const [Products, setProducts]:any = useState()
@@ -38,8 +31,8 @@ export function ProductsView () {
         }, [])
         const dispatch = useDispatch()
     const navigate = useNavigate()
-        const handleAddToCart = (item:item) => {
-            dispatch(addToCart(Products))
+        const handleAddToCart = (item:product) => {
+            dispatch(addToCart(item))
             navigate('/cart')
         }
     return (

@@ -6,39 +6,49 @@ import styled from "styled-components";
 import { PageTitle } from "../../components/PageTitle";
 import { product } from "../../entities/Products";
 import { deleteToCart } from "../../store/slices/cardSlice";
+import { CustomButton } from "../../components/CustomButton"
 
 type productCart = {
-    product: product
+    products: Array<product>
 }
 
-export function YourOrder (  { product }:productCart) {
+export function YourOrder (  { products }:productCart) {
     const dispatch = useDispatch()
 
-    const handleDelete = () => {
-        dispatch(deleteToCart())
+    const handleDelete = (product:product) => {
+        dispatch(deleteToCart(product))
     }
 
     return(
         <>
             <PageTitle>Seu Pedido</PageTitle>
             <StyledDiv>
+            {products.map(product => 
+                    <>
                 <DivImageAndProduct>
-                    <img src={product.image} alt={product.name} height={100} width={100}/>
-                    <div>
-                        <h5>{product.name}</h5>
-                        <p>{product.description}</p>
-                    </div>
+                        <img src={product.image} alt={product.name} height={100} width={100}/>
+                        <div>
+                            <h5>{product.name}</h5>
+                            <p>{product.description}</p>
+                        </div>
                 </DivImageAndProduct>
                 <DivPriceQtyAndTrash>
                     <div>1</div>
                     <p className="mb-0">{product.price.toLocaleString()}</p>
                     <Button 
                         variant="transparent"
-                        onClick={handleDelete}    
+                        onClick={() => {
+                            handleDelete(product) 
+                          }}
+                  
                     >
                         <FontAwesomeIcon icon={faTrash}/>
                     </Button>
                 </DivPriceQtyAndTrash>
+                </>
+                        )}
+                    <CustomButton to="/produtos">Adicionar mais itens</CustomButton>
+                    <CustomButton to="/novo-pedido">Finalizar pedido</CustomButton>
             </StyledDiv>
         </>
     )

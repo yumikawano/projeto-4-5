@@ -6,7 +6,15 @@ import { toast } from "react-toastify";
 import { createOrder } from "../../services/createOrder";
 import { selectUser } from "../../store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { User } from "firebase/auth";
+import { Estimate } from "../../entities/Estimate";
 
+type EstimateFinish = {
+  user: User
+  currentEstimate: Estimate
+}
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export function EstimateFinish () {
   const currentEstimate = useSelector(selectCurrentEstimate)
   const user = useSelector(selectUser)

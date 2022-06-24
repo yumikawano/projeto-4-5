@@ -2,23 +2,25 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { product } from "../../entities/Products"
 import { RootState } from "../store"
 
-type UserState = {
-    cart: product | null
+type ProductState = {
+    cart: Array<product> 
 }
 
-const initialState: UserState ={
-    cart: null
+const initialState: ProductState ={
+    cart: []
 }
 
 const slice = createSlice({
     name: 'cart',
     initialState,
     reducers:{
-        addToCart:(state: UserState, action:PayloadAction<product>) => {
-            state.cart = action.payload
+        addToCart:(state: ProductState, action:PayloadAction<product>) => {
+            const cart = state.cart || []
+            state.cart = [...cart,action.payload]
         },
-        deleteToCart: (state:UserState) =>{
-            state.cart = null
+        deleteToCart: (state:ProductState, action:PayloadAction<product>) =>{
+            state.cart = state.cart.filter(cart=>cart.id !== action.payload.id)
+            console.log(action.payload)
         }
     }
 })
