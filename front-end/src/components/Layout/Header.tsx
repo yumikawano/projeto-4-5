@@ -18,11 +18,11 @@ export function Header () {
     navigate('/login')
   }
     return (
-        <header>
+        <HeaderStyled>
                 <Navbar>
                     <Container>
                         <Navbar.Brand to="/" as={Link}>
-                        <Image src={Logo}  className="logo"
+                        <ImageLogoStyled src={Logo}  className="logo"
                 alt="Logo Magia das Velas"
                 width={202}
                 height={202} />
@@ -47,7 +47,7 @@ export function Header () {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-        </header>
+        </HeaderStyled>
     )
 }
 
@@ -57,5 +57,22 @@ const NavLinkStyled = styled(Nav.Link)`
     font-size: 25px;
     padding: 20px;
     text-decoration: none;
+  }
+  @media (min-width: 360px) {
+    color: #000000;
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+  }
+`
+const ImageLogoStyled = styled(Image)`
+  @media (min-width: 360px) {
+    width: 100px;
+    height: 100px;
+  }
+`
+const HeaderStyled = styled(Header)`
+  @media (min-width: 360px) {
+    width: 100%;
   }
 `

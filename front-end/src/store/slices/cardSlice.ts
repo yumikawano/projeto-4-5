@@ -3,10 +3,12 @@ import { product } from "../../entities/Products"
 import { RootState } from "../store"
 
 type ProductState = {
-    cart: Array<product> 
+    cart: Array<product>,
+    // valorTotal: Number
 }
 
 const initialState: ProductState ={
+    // valorTotal: 0,
     cart: []
 }
 
@@ -20,7 +22,7 @@ const slice = createSlice({
         },
         deleteToCart: (state:ProductState, action:PayloadAction<product>) =>{
             state.cart = state.cart.filter(cart=>cart.id !== action.payload.id)
-            console.log(action.payload)
+            // state.valorTotal = state.cart.reduce((a:product, b:product) => a.price + b.price, 0)
         }
     }
 })
