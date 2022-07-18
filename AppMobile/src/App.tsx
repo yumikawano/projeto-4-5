@@ -1,6 +1,9 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text} from 'react-native';
+import { HomeView } from './views/Home';
 
 export default function App() {
-  return <Text>Magia das Velas</Text>;
+  return (
+   <HomeView />
+  );
 }
