@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Italiana-Regular.ttf",
+      "sha1": "e10f8b2b90e4e72c4f4fc2e7ddff58198756100d"
+    },
+    {
+      "path": "src/assets/fonts/OFL.txt",
+      "sha1": "b17c7c040b30bfd184e93ed08d251e0728ee0665"
+    }
+  ]
+}
